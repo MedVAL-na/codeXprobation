@@ -1,0 +1,57 @@
+.button {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    border: 0;
+    border-radius: 3em;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+  }
+  .button-style-primary {
+    color: white;
+    background-color: #24A3FF;
+  }
+  .button-style-secondary {
+    color: #1A1B1C;
+    background-color: #EBEBEC;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  }
+  .button-style-danger {
+    color: white;
+    background-color: #E32121;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  }
+  .button-size-small {
+    font-size: 12px;
+    padding: 10px 16px;
+  }
+  .button-size-medium {
+    font-size: 14px;
+    padding: 11px 20px;
+  }
+  .button-size-large {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+  
+  .button-state-disabled {
+    color: #787878;
+    background-color: #EBEBEC;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  }
+  
+  .button-state-default {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  }
+  .button-state-hover{
+    border-radius: 2em;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  }
+   /*  
+  добавить state, 
+   type, 
+   icons */
+  .button-type-solid{
+    border-radius: 2em;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  }
