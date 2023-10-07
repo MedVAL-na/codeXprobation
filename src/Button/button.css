@@ -1,11 +1,15 @@
 .button {
     font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 700;
-    border: 0;
-    border-radius: 3em;
+    border: none;
     cursor: pointer;
     display: inline-block;
-    line-height: 1;
+    border-radius: 20px;
+
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    max-width: 100%;
   }
   .button-style-primary {
     color: white;
@@ -47,11 +51,51 @@
     border-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
   }
-   /*  
-  добавить state, 
-   type, 
-   icons */
   .button-type-solid{
     border-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  }
+
+ /*icon types*/
+  .button-iconType-none{
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    flex-shrink: 1;
+    
+  }
+  .button-iconType-leading{
+
+    display: inline-flex;
+    align-items: center;
+   
+    flex-shrink: 0;
+    
+    align-items: center;
+  }
+  .button-iconType-trailing{
+    display: inline-flex;
+    align-items: center;
+
+    
+    flex-shrink: 0;
+    
+  }
+  .button-iconType-leadingTrailing{
+    display: inline-flex;
+    align-items: center;
+
+    display: flex;
+    flex-shrink: 0;
+    
+  }
+  .button-iconType-standalone{
+    --button-icon-indent: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    padding: 0;
+    
   }
