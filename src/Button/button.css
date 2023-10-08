@@ -18,105 +18,156 @@
     box-sizing: border-box;
     max-width: 100%;
   }
+ /*style*/
+ .button-style-primary {
+  --solid-bg: #24A3FF;
+  --solid-bg-hover: #1C8CF2;
+  --solid-txt: white;
+  
+  --outline-bg: white;
+  --outline-bg-hover: #369FFF38;
+  --outline-txt: #24A3FF;
 
-  /*style*/
-.button-style-primary {
-    --main-bg-color: #369FFF;
-    --text-color: #FFFFFF;
-    --main-text-color:#369FFF;
-    --secondary-bg-color: #369FFF1F;
-    
-  }
+  --soft-bg: #369FFF1F;
+  --soft-bg-hover: #369FFF38;
+  --soft-txt:#24A3FF;
+
+  --ghost-bg: white;
+  --ghost-bg-hover: #369FFF38;
+  --ghost-txt: #24A3FF;
+
+}
 .button-style-secondary {
-    --main-bg-color: #EBEBEC;
-    --text-color: #1A1B1C;
-    --main-text-color:#1A1B1C;
-    --secondary-bg-color:#EBEBEC78;
-  }
+  --solid-bg: #EBEBEC;
+  --solid-bg-hover: #E7E7E9;
+  --solid-txt: #1A1B1C;
+
+  --outline-bg: white;
+  --outline-bg-hover: #E7E7E9;
+  --outline-txt: #1A1B1C;
+
+  --soft-bg: #EBEBEC78;
+  --soft-bg-hover: #EBEBECB2;
+  --soft-txt:#1A1B1C;
+
+  --ghost-bg: white;
+  --ghost-bg-hover: #EBEBEC78;
+  --ghost-txt: #1A1B1C;
+
+}
 .button-style-danger {
-    --main-bg-color: #E32121;
-    --text-color: #FFFFFF;
-    --main-text-color: #E32121;
-    --secondary-bg-color:#E321211A;
-  }
+  --solid-bg: #E32121;
+  --solid-bg-hover: #D43A3A;
+  --solid-txt: white;
+
+  --outline-bg: white;
+  --outline-bg-hover: #E3212124;
+  --outline-txt:#E32121;
+
+  --soft-bg: #E321211A;
+  --soft-bg-hover: #E3212124;
+  --soft-txt:#E32121;
+
+  --ghost-bg: white;
+  --ghost-bg-hover: #E3212124;
+  --ghost-txt: #E32121;
+}
+
+ /*type*/
+ .button-type-solid{
+  background-color: var(--solid-bg);
+  color: var(--solid-txt);
+  --hover-bg: var(--solid-bg-hover);
+}
+.button-type-outline{    
+  background-color: var(--outline-bg);
+  color: var(--outline-txt);
+  --hover-bg: var(--outline-bg-hover);
+
+  border-radius: var( 8px);
+  border: 1px solid var(--outline-txt);
+  
+
+  --disabled-border: #94979A;
+}
+.button-type-soft{
+  background-color: var(--soft-bg);
+  color: var(--soft-txt);
+  --hover-bg: var(--soft-bg-hover);
+
+}
+.button-type-ghost{
+  background-color: var(--ghost-bg);
+  color: var(--ghost-txt);
+  --hover-bg: var(--ghost-bg-hover);
+  
+}
+
+/*icon type*/
+.button-iconType-none{
+  
+}
+.button-iconType-leading{
+gap:  6px;
+}
+
+.button-iconType-trailing{
+  --hover-bg-color:#D43A3A;
+gap:  6px;
+ 
+}
+.button-iconType-leadingTrailing{
+gap: 6px;
+ 
+}
+.button-iconType-standalone{
+  
+
+align-items: center;
+gap:  6px;
+ 
+}
+ 
 
   /*size*/
 .button-size-small {
     display: inline-flex;
     padding: 5px;
     align-items: center;
-    border-radius: var(--radius-radius-m, 8px);
+    border-radius: 8px; 
   }
 .button-size-medium {
   
     display: inline-flex;
     align-items: center;
-    border-radius: var(--radius-radius-m, 8px);
+    border-radius: 8px; 
     padding: 8px;
   }
 .button-size-large {
   
     display: inline-flex;
     align-items: center;
-    border-radius: var(--radius-radius-m, 8px); 
+    border-radius: 8px; 
     padding: 12px;
   }
-  /*type*/
-  .button-type-solid{
-    background-color: var(--main-bg-color);
-    color: var(--text-color);
-  }
-  .button-type-outline{    
-    border-radius: var(--radius-radius-m, 8px);
-    border: 1px solid var(--main-color);
-    color:  var(--main-text-color);
-    background-color: white;
-  }
-  .button-type-soft{
-    color:  var(--main-text-color);
-    background-color: var(--secondary-bg-color);
-  }
-  .button-type-ghost{
-
-    color:  var(--main-text-color);
-    background-color: white;
-  }
+ 
 
 
 /*state*/ 
 .button-state-default {
-   
+ 
 }
 .button-state-hover{
-  filter: brightness(60%);
+  
+  background-color: var(--hover-bg);
 }
 .button-state-disabled {
+  
   color: #787878;
   background-color: #EBEBEC;
+  border-color: var(--disabled-border);
 }
 
 
 
- /*icon type*/
-.button-iconType-none{
-     
-}
-.button-iconType-leading{
-  
-  gap:  6px;
-}
-
-.button-iconType-trailing{
-  gap:  6px;
-    
-}
-.button-iconType-leadingTrailing{
-  gap: 6px;
-    
-}
-.button-iconType-standalone{
-  
-  align-items: center;
-  gap:  6px;
-    
-}
+ 
