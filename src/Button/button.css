@@ -1,101 +1,122 @@
 .button {
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    border-radius: 20px;
+    /*text*/
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Source Sans 3;
+    font-size: 14px;
+    font-style: bold;
+    font-weight: 500;
+    line-height: 143%; /* 20.02px */
+    letter-spacing: 0.28px;
 
+    
+    border: 0;
+    cursor: pointer;
     position: relative;
+
+    
     overflow: hidden;
     box-sizing: border-box;
     max-width: 100%;
   }
-  .button-style-primary {
-    color: white;
-    background-color: #24A3FF;
+
+  /*style*/
+.button-style-primary {
+    --main-bg-color: #369FFF;
+    --text-color: #FFFFFF;
+    --main-text-color:#369FFF;
+    --secondary-bg-color: #369FFF1F;
+    
   }
-  .button-style-secondary {
-    color: #1A1B1C;
-    background-color: #EBEBEC;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+.button-style-secondary {
+    --main-bg-color: #EBEBEC;
+    --text-color: #1A1B1C;
+    --main-text-color:#1A1B1C;
+    --secondary-bg-color:#EBEBEC78;
   }
-  .button-style-danger {
-    color: white;
-    background-color: #E32121;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+.button-style-danger {
+    --main-bg-color: #E32121;
+    --text-color: #FFFFFF;
+    --main-text-color: #E32121;
+    --secondary-bg-color:#E321211A;
   }
-  .button-size-small {
-    font-size: 12px;
-    padding: 10px 16px;
+
+  /*size*/
+.button-size-small {
+    display: inline-flex;
+    padding: 5px;
+    align-items: center;
+    border-radius: var(--radius-radius-m, 8px);
   }
-  .button-size-medium {
-    font-size: 14px;
-    padding: 11px 20px;
-  }
-  .button-size-large {
-    font-size: 16px;
-    padding: 12px 24px;
-  }
+.button-size-medium {
   
-  .button-state-disabled {
-    color: #787878;
-    background-color: #EBEBEC;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--radius-radius-m, 8px);
+    padding: 8px;
   }
+.button-size-large {
   
-  .button-state-default {
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--radius-radius-m, 8px); 
+    padding: 12px;
   }
-  .button-state-hover{
-    border-radius: 2em;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-  }
+  /*type*/
   .button-type-solid{
-    border-radius: 2em;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+  }
+  .button-type-outline{    
+    border-radius: var(--radius-radius-m, 8px);
+    border: 1px solid var(--main-color);
+    color:  var(--main-text-color);
+    background-color: white;
+  }
+  .button-type-soft{
+    color:  var(--main-text-color);
+    background-color: var(--secondary-bg-color);
+  }
+  .button-type-ghost{
+
+    color:  var(--main-text-color);
+    background-color: white;
   }
 
- /*icon types*/
-  .button-iconType-none{
-    overflow: hidden;
-    text-align: center;
-    text-overflow: ellipsis;
-    flex-grow: 1;
-    flex-shrink: 1;
-    
-  }
-  .button-iconType-leading{
 
-    display: inline-flex;
-    align-items: center;
+/*state*/ 
+.button-state-default {
    
-    flex-shrink: 0;
-    
-    align-items: center;
-  }
-  .button-iconType-trailing{
-    display: inline-flex;
-    align-items: center;
+}
+.button-state-hover{
+  filter: brightness(60%);
+}
+.button-state-disabled {
+  color: #787878;
+  background-color: #EBEBEC;
+}
 
-    
-    flex-shrink: 0;
-    
-  }
-  .button-iconType-leadingTrailing{
-    display: inline-flex;
-    align-items: center;
 
-    display: flex;
-    flex-shrink: 0;
+
+ /*icon type*/
+.button-iconType-none{
+     
+}
+.button-iconType-leading{
+  
+  gap:  6px;
+}
+
+.button-iconType-trailing{
+  gap:  6px;
     
-  }
-  .button-iconType-standalone{
-    --button-icon-indent: 0;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    padding: 0;
+}
+.button-iconType-leadingTrailing{
+  gap: 6px;
     
-  }
+}
+.button-iconType-standalone{
+  
+  align-items: center;
+  gap:  6px;
+    
+}
