@@ -4,7 +4,7 @@ export default {
     title: 'Button',
     component: Button,
     argTypes: {
-        type:{
+        view:{
             type: 'string',
             description: 'Set visual type of a button',
             defaultValue: 'solid',
@@ -22,7 +22,7 @@ export default {
                 type: 'radio',
             }
         },
-        style:{
+        theme:{
             type: 'string',
             description: 'Set visual style of a button',
             defaultValue: 'primary',
@@ -56,9 +56,9 @@ export const Default = Template.bind({});
 
 
 Default.args = {
-    type : 'solid',
+    view : 'solid',
     size : 'medium',
-    style : 'primary',
+    theme : 'primary',
     iconType : 'none',
     state : 'default',
 
@@ -68,9 +68,9 @@ export const Large = Template.bind({});
 
 
 Large.args = {
-    type : 'solid',
+    view : 'solid',
     size : 'large',
-    style : 'danger',
+    theme : 'danger',
     iconType : 'none',
     state : 'default',
 

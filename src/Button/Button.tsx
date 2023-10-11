@@ -1,39 +1,80 @@
-import React from 'react';
-import './button.css';
+import React, { PropsWithChildren } from "react";
 
-interface ButtonProps {
-  type?: 'solid'| 'outline'| 'soft' | 'ghost';
-  size?: 'small' | 'medium' | 'large';
-  style?: 'primary'| 'secondary'| 'danger';
-  iconType?: 'none' | 'leading' | 'trailing' | 'leadingTrailing' | 'standalone';
-  state?: 'default' | 'hover' | 'disabled';
-  onClick?: () => void;
+interface ButtonProps
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  view?: "solid" | "outline" | "soft" | "ghost";
+  size?: "small" | "medium" | "large";
+  theme?: "primary" | "secondary" | "danger";
+  iconType?: "none" | "leading" | "trailing" | "leadingTrailing" | "standalone";
+  state?: "default" | "hover" | "disabled";
+  iconLeft?: JSX.Element;
+  iconRight?: JSX.Element;
 }
 
+const Icon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+  >
+    <path
+      d="M10 5V10M10 15V10M15 10H10M10 10H5"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+    />
+  </svg>
+);
 
 export const Button = ({
-    type = 'solid',
-    size = 'medium',
-    style = 'primary',
-    iconType = 'none',
-    state = 'default',
-  }: ButtonProps) => {
-    return (
-      <button
-        type="button"
-        className={['button',  `button-size-${size}`, `button-style-${style}`,
-        `button-type-${type}`, `button-iconType-${iconType}`, `button-state-${state}`,].join(' ')}
-      >
-        {iconType == "none" ? <div>Button</div> 
-        :iconType == "leading" ? <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -4 20 20" fill="none"><path stroke="currentColor"  d="M10 5V10M10 15V10M15 10H10M10 10H5" strokeWidth="1.6" strokeLinecap="round"/>
-        </svg>{"Button"}</span> 
-        : iconType == "trailing" ? <span>{"Button"} <svg xmlns="http://www.w3.org/2000/svg"  width="15" height="15" transform='rotate(90)' fill="none" viewBox="0 1 20 20"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 8L5 12L9 16"/><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 8L19 12L15 16"/></svg></span> :
-        iconType == "leadingTrailing" ? <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -4 20 20" fill="none"><path d="M10 5V10M10 15V10M15 10H10M10 10H5" stroke="currentColor"  strokeWidth="1.6" strokeLinecap="round"/>
-        </svg>{"Button"} <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" transform='rotate(90)' fill="none" viewBox="0 1 20 20"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 8L5 12L9 16"/><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 8L19 12L15 16"/></svg></span> 
-        :<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M10 5V10M10 15V10M15 10H10M10 10H5" stroke="currentColor"  strokeWidth="1.6" strokeLinecap="round"/>
-        </svg>}
-        </button>
-    );
-  };
-  
+  view: type = "solid",
+  size = "medium",
+  theme: style = "primary",
+  iconType = "none",
+  state = "default",
+  iconLeft = <Icon />,
+  iconRight = <Icon />,
+  ...props
+}: ButtonProps) => {
+  const WrappedIcon: React.FC<PropsWithChildren<{}>> = ({ children }) => (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100%",
+      }}
+    >
+      {children}
+    </span>
+  );
+
+  const hasLeftIcon =
+    iconLeft && ["leading", "leadingTrailing", "standalone"].includes(iconType);
+  const hasRightIcon =
+    iconRight && ["trailing", "leadingTrailing"].includes(iconType);
+
+  return (
+    <button
+      type="button"
+      className={[
+        "button",
+        `button-size-${size}`,
+        `button-style-${style}`,
+        `button-type-${type}`,
+        `button-iconType-${iconType}`,
+        `button-state-${state}`,
+      ].join(" ")}
+      {...props}
+    >
+      {hasLeftIcon && <WrappedIcon>{iconLeft}</WrappedIcon>}
+      {iconType !== "standalone" && <div>Button</div>}
+      {hasRightIcon && <WrappedIcon>{iconRight}</WrappedIcon>}
+    </button>
+  );
+};

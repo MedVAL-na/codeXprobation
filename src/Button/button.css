@@ -1,6 +1,5 @@
 .button {
     /*text*/
-    font-feature-settings: 'clig' off, 'liga' off;
     font-family: Source Sans 3;
     font-size: 14px;
     font-style: bold;
@@ -131,7 +130,7 @@ gap:  6px;
   /*size*/
 .button-size-small {
     display: inline-flex;
-    padding: 5px;
+    padding: 8px;
     align-items: center;
     border-radius: 8px; 
   }
